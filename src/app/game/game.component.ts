@@ -19,6 +19,8 @@ export class GameComponent implements OnInit {
     flippedTileCounter: number = 0;
     flipFlag: boolean = false;
     playerTurn: IPlayerTurn;
+    // experiment
+    currentTiles: any;
 
     constructor() {
         this.game = new Phaser.Game(900, 600, Phaser.AUTO, 'content', {
@@ -49,7 +51,36 @@ export class GameComponent implements OnInit {
         this.flippedTileCounter++;
         let tappedPosition = ((this.tileLayer.getTileY(this.game.input.activePointer.worldY) + 1) * 6) - (6 - (this.tileLayer.getTileX(this.game.input.activePointer.worldX) + 1));
         console.log('tapPosition: ', tappedPosition);
+    };
 
+    generateTiles: any = (levelData: any) => {
+        let tmpJSON = Phaser.ArrayUtils.shuffle(levelData);
+        // let jsonX = tmpJSON.map(function(_: any, i: number) {
+        //     // i = x + width*y;
+        //     // x = i % width; 
+        //     // y = Math.floor(i / width); 
+        //     let width = 6;
+        //     let tmpX = (i % width) + 1;
+        //     let tmpY = Math.ceil((1 + i) / width);
+        //     console.log('x:', tmpX, 'y:', tmpY);
+        //     _.x = tmpX;
+        //     _.y = tmpY;
+        //     return _;
+        // });
+        return tmpJSON.map(function(_: any, i: number) {
+            // i = x + width*y;
+            // x = i % width; 
+            // y = Math.floor(i / width); 
+            let width = 6;
+            let tmpX = (i % width) + 1;
+            let tmpY = Math.ceil((1 + i) / width);
+            console.log('x:', tmpX, 'y:', tmpY);
+            _.x = tmpX;
+            _.y = tmpY;
+            return _;
+        });
+        // console.log(jsonX);
+        // return Phaser.ArrayUtils.shuffle(levelData);
     };
 
     preload = () => {
@@ -62,16 +93,28 @@ export class GameComponent implements OnInit {
 
     create = () => {
         console.log('create: ');
+
         this.levelData = JSON.parse(this.game.cache.getText('level_data'));
+        this.currentTiles = this.generateTiles(this.levelData);
+        console.log('this.currentTiles: ', this.currentTiles);
+
         this.map = this.game.add.tilemap('matching');
         this.map.addTilesetImage('adventure_time', 'tiles');
         this.tileLayer = this.map.createLayer('TileLayer1');
 
-        for (let col = 0; col < 6; col++) {
-            for (let row = 0; row < 6; row++) {
-                this.map.putTile(35, col, row);
-            }
-        }
+        this.currentTiles.map((_, i) => {
+            let id = _.tileImageId;
+            let x = _.x - 1;
+            let y = _.y - 1;
+            this.map.putTile(id, x, y);
+        })
+
+        // for (let col = 0; col < 6; col++) {
+        //     for (let row = 0; row < 6; row++) {
+        //         this.map.putTile(35, col, row);
+        //         console.log('x, y ', (row + 1), (col + 1));
+        //     }
+        // }
 
         this.marker = this.game.add.graphics(0, 0);
         this.marker.lineStyle(2, 0x00FF00, 1);
