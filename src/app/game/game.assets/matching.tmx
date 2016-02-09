@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="6" height="6" tilewidth="100" tileheight="100" nextobjectid="46">
+ <tileset firstgid="1" name="AdventureTileSet" tilewidth="100" tileheight="100" tilecount="36" columns="6">
+  <image source="adventure_time.png" width="600" height="600"/>
+ </tileset>
+ <layer name="TileLayer1" width="6" height="6">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <objectgroup name="ObjectLayer1">
+  <object id="10" name="TileCover_1" type="TileCover" gid="36" x="0" y="100" width="100" height="100" visible="0"/>
+  <object id="11" name="TileCover_2" type="TileCover" gid="36" x="100" y="100" width="100" height="100" visible="0"/>
+  <object id="12" name="TileCover_3" type="TileCover" gid="36" x="200" y="100" width="100" height="100" visible="0"/>
+  <object id="13" name="TileCover_4" type="TileCover" gid="36" x="300" y="100" width="100" height="100" visible="0"/>
+  <object id="14" name="TileCover_5" type="TileCover" gid="36" x="400" y="100" width="100" height="100" visible="0"/>
+  <object id="15" name="TileCover_6" type="TileCover" gid="36" x="500" y="100" width="100" height="100" visible="0"/>
+  <object id="16" name="TileCover_12" type="TileCover" gid="36" x="500" y="200" width="100" height="100" visible="0"/>
+  <object id="17" name="TileCover_10" type="TileCover" gid="36" x="300" y="200" width="100" height="100" visible="0"/>
+  <object id="18" name="TileCover_11" type="TileCover" gid="36" x="400" y="200" width="100" height="100" visible="0"/>
+  <object id="19" name="TileCover_8" type="TileCover" gid="36" x="100" y="200" width="100" height="100" visible="0"/>
+  <object id="20" name="TileCover_7" type="TileCover" gid="36" x="0" y="200" width="100" height="100" visible="0"/>
+  <object id="21" name="TileCover_9" type="TileCover" gid="36" x="200" y="200" width="100" height="100" visible="0"/>
+  <object id="22" name="TileCover_18" type="TileCover" gid="36" x="500" y="300" width="100" height="100" visible="0"/>
+  <object id="23" name="TileCover_16" type="TileCover" gid="36" x="300" y="300" width="100" height="100" visible="0"/>
+  <object id="24" name="TileCover_17" type="TileCover" gid="36" x="400" y="300" width="100" height="100" visible="0"/>
+  <object id="25" name="TileCover_14" type="TileCover" gid="36" x="100" y="300" width="100" height="100" visible="0"/>
+  <object id="26" name="TileCover_13" type="TileCover" gid="36" x="0" y="300" width="100" height="100" visible="0"/>
+  <object id="27" name="TileCover_15" type="TileCover" gid="36" x="200" y="300" width="100" height="100" visible="0"/>
+  <object id="28" name="TileCover_34" type="TileCover" gid="36" x="300" y="600" width="100" height="100" visible="0"/>
+  <object id="29" name="TileCover_32" type="TileCover" gid="36" x="100" y="600" width="100" height="100" visible="0"/>
+  <object id="30" name="TileCover_30" type="TileCover" gid="36" x="500" y="500" width="100" height="100" visible="0"/>
+  <object id="31" name="TileCover_24" type="TileCover" gid="36" x="500" y="400" width="100" height="100" visible="0"/>
+  <object id="32" name="TileCover_28" type="TileCover" gid="36" x="300" y="500" width="100" height="100" visible="0"/>
+  <object id="33" name="TileCover_36" type="TileCover" gid="36" x="500" y="600" width="100" height="100" visible="0"/>
+  <object id="34" name="TileCover_20" type="TileCover" gid="36" x="100" y="400" width="100" height="100" visible="0"/>
+  <object id="35" name="TileCover_27" type="TileCover" gid="36" x="200" y="500" width="100" height="100" visible="0"/>
+  <object id="36" name="TileCover_23" type="TileCover" gid="36" x="400" y="400" width="100" height="100" visible="0"/>
+  <object id="37" name="TileCover_21" type="TileCover" gid="36" x="200" y="400" width="100" height="100" visible="0"/>
+  <object id="38" name="TileCover_35" type="TileCover" gid="36" x="400" y="600" width="100" height="100" visible="0"/>
+  <object id="39" name="TileCover_31" type="TileCover" gid="36" x="0" y="600" width="100" height="100" visible="0"/>
+  <object id="40" name="TileCover_19" type="TileCover" gid="36" x="0" y="400" width="100" height="100" visible="0"/>
+  <object id="41" name="TileCover_33" type="TileCover" gid="36" x="200" y="600" width="100" height="100" visible="0"/>
+  <object id="42" name="TileCover_25" type="TileCover" gid="36" x="0" y="500" width="100" height="100" visible="0"/>
+  <object id="43" name="TileCover_26" type="TileCover" gid="36" x="100" y="500" width="100" height="100" visible="0"/>
+  <object id="44" name="TileCover_22" type="TileCover" gid="36" x="300" y="400" width="100" height="100" visible="0"/>
+  <object id="45" name="TileCover_29" type="TileCover" gid="36" x="400" y="500" width="100" height="100" visible="0"/>
+ </objectgroup>
+</map>
