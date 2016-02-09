@@ -1,0 +1,32 @@
+[
+  {
+    "player": {
+      "first": "NEO",
+      "numberOfTurns": 36
+    }
+  },
+  {
+    "player": {
+      "first": "Oscar",
+      "numberOfTurns": 40
+    }
+  },
+  {
+    "player": {
+      "first": "Logan",
+      "numberOfTurns": 52
+    }
+  },
+  {
+    "player": {
+      "first": "Dexter",
+      "numberOfTurns": 54
+    }
+  },
+  {
+    "player": {
+      "first": "Herring",
+      "numberOfTurns": 58
+    }
+  }
+]

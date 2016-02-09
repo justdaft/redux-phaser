@@ -1,0 +1,44 @@
+{ "height":6,
+ "layers":[
+        {
+         "data":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+         "encoding":"base64",
+         "height":6,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":6,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
+ "renderorder":"right-down",
+ "tileheight":100,
+ "tilesets":[
+        {
+         "columns":6,
+         "firstgid":36,
+         "image":"..\/..\/..\/..\/..\/matching_adventure_time.png",
+         "imageheight":600,
+         "imagewidth":600,
+         "margin":1,
+         "name":"adventure_time",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":36,
+         "tileheight":100,
+         "tilewidth":100
+        }],
+ "tilewidth":100,
+ "version":1,
+ "width":6
+}
