@@ -1,12 +1,10 @@
 export interface ITile {
-    _id?: number;
     id?: number;
     tileImageId?: number;
     uuid?: any;
+    x: number;
+    y: number;
     isMatched?: boolean;
-    x?: number;
-    y?: number;
-    canFlip?: boolean;
     isFlipped?: boolean;
 }
 
@@ -15,4 +13,12 @@ export interface IGameStateAction {
     item?: any;
     itemId?: string;
     completed?: boolean;
+    turn?: any;
+}
+
+export interface IPlayerTurn {
+    uuid?: any;
+    firstFlippedTile?: ITile;
+    secondFlippedTile?: ITile;
+    flippedTileCount: number;
 }

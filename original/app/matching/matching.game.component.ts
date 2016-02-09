@@ -65,10 +65,10 @@ export class MatchingGame implements OnInit {
 
     animal: any = 'dog';
 
-    ngOnInit() { 
+    ngOnInit() {
         //
     };
-    
+
     initGameState = () => {
         this.level_data = JSON.parse(this.game.cache.getText('level_data'));
         this.flippedTileCounter = 0;
@@ -110,11 +110,11 @@ export class MatchingGame implements OnInit {
         this.initGameState();
         this.animal = ' _create: mouse';
         console.log(this.animal);
-        
+
         this.background = this.game.add.sprite(600, 0);
         this.background.width = 300;
         this.background.height = 600;
- 
+
         this.game.input.mouse.capture = true;
         this.game.input.onTap.add(this.onTap, this);
 
@@ -125,7 +125,7 @@ export class MatchingGame implements OnInit {
         this.marker = this.game.add.graphics(0, 0);
         this.marker.lineStyle(2, 0x00FF00, 1);
         this.marker.drawRect(0, 0, 100, 100);
-        
+
         for (let col = 0; col < 6; col++) {
             for (let row = 0; row < 6; row++) {
                 this.map.putTile(36, col, row);
@@ -179,15 +179,15 @@ export class MatchingGame implements OnInit {
     };
 
     setFirstFlippedTile = (hiddenTileId: number) => {
-             this.firstFlippedTile = {
-                x: this.layer.getTileX(this.marker.x),
-                y: this.layer.getTileY(this.marker.y),
-                isFlipped: true,
-                id: hiddenTileId
-            };
-            this.map.putTile(hiddenTileId, this.firstFlippedTile.x, this.firstFlippedTile.y);
-            this.currentTile = this.map.getTile(this.firstFlippedTile.x, this.firstFlippedTile.y);
-            console.log('Hidden Tile, this.currentTile: ', this.currentTile);
+        this.firstFlippedTile = {
+            x: this.layer.getTileX(this.marker.x),
+            y: this.layer.getTileY(this.marker.y),
+            isFlipped: true,
+            id: hiddenTileId
+        };
+        this.map.putTile(hiddenTileId, this.firstFlippedTile.x, this.firstFlippedTile.y);
+        this.currentTile = this.map.getTile(this.firstFlippedTile.x, this.firstFlippedTile.y);
+        console.log('Hidden Tile, this.currentTile: ', this.currentTile);
     }
 
     setSecondFlippedTile = (hiddenTileId: number) => {

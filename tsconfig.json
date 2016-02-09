@@ -19,6 +19,7 @@
     "files": [
         "src/app/bootstrap.ts",
         "src/app/app/app.component.ts",
+        "src/app/game/game.models.ts",
         "src/app/game/game.component.ts",
         "src/app/home/home.component.ts",
         "src/app/about/about.component.ts",
