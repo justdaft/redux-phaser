@@ -1,0 +1,46 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "dist/app",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "module": "system",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "sourceMap": true,
+        "noImplicitAny": true
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "typings/**/*.d.ts",
+        "node_modules/immutable/dist/*.d.ts"
+    ],
+    "files": [
+        "src/app/bootstrap.ts",
+        "src/app/app/app.component.ts",
+        "src/app/game/game.component.ts",
+        "src/app/home/home.component.ts",
+        "src/app/about/about.component.ts",
+        "src/app/devtools/rollbackaction.ts",
+        "src/app/devtools/statelist.ts",
+        "src/app/devtools/statemonitor.ts",
+        "src/app/devtools/stringify.ts",
+        "src/app/store/actions.ts",
+        "src/app/store/reducer.ts",
+        "src/app/store/todoitem.ts",
+        "src/app/store/todostore.ts",
+        "src/app/todoitem/itemupdatedevent.ts",
+        "src/app/todoitem/todoitem.ts",
+        "src/app/todolist/todolist.ts",
+        "typings/node-uuid/node-uuid-base.d.ts",
+        "typings/node-uuid/node-uuid-global.d.ts",
+        "typings/redux/redux.d.ts",
+        "typings/tsd.d.ts",
+        "node_modules/immutable/dist/immutable.d.ts",
+        "typings/phaser.d.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
