@@ -22,6 +22,7 @@ export class GameComponent implements OnInit {
     // experiment
     currentTiles: any;
 
+
     constructor() {
         this.game = new Phaser.Game(900, 600, Phaser.AUTO, 'content', {
             preload: this.preload,
@@ -45,6 +46,8 @@ export class GameComponent implements OnInit {
     //     this.timer.stop();
     // };
 
+
+
     onTap = (pointer: any, tap: any) => {
         console.log('onTap: ');
         this.timer = this.game.time.create(true);
@@ -55,22 +58,12 @@ export class GameComponent implements OnInit {
 
     generateTiles: any = (levelData: any) => {
         let tmpJSON = Phaser.ArrayUtils.shuffle(levelData);
-        // let jsonX = tmpJSON.map(function(_: any, i: number) {
-        //     // i = x + width*y;
-        //     // x = i % width; 
-        //     // y = Math.floor(i / width); 
-        //     let width = 6;
-        //     let tmpX = (i % width) + 1;
-        //     let tmpY = Math.ceil((1 + i) / width);
-        //     console.log('x:', tmpX, 'y:', tmpY);
-        //     _.x = tmpX;
-        //     _.y = tmpY;
-        //     return _;
-        // });
+                for (let col = 0; col < 6; col++) {
+            for (let row = 0; row < 6; row++) {
+                this.map.putTile(35, col, row);
+            }
+        }
         return tmpJSON.map(function(_: any, i: number) {
-            // i = x + width*y;
-            // x = i % width; 
-            // y = Math.floor(i / width); 
             let width = 6;
             let tmpX = (i % width) + 1;
             let tmpY = Math.ceil((1 + i) / width);
@@ -79,8 +72,6 @@ export class GameComponent implements OnInit {
             _.y = tmpY;
             return _;
         });
-        // console.log(jsonX);
-        // return Phaser.ArrayUtils.shuffle(levelData);
     };
 
     preload = () => {
@@ -91,30 +82,22 @@ export class GameComponent implements OnInit {
         this.game.load.image('cover', 'app/game/game.assets/question_mark.png');
     };
 
+
+
     create = () => {
         console.log('create: ');
 
         this.levelData = JSON.parse(this.game.cache.getText('level_data'));
-        this.currentTiles = this.generateTiles(this.levelData);
-        console.log('this.currentTiles: ', this.currentTiles);
+
+
 
         this.map = this.game.add.tilemap('matching');
         this.map.addTilesetImage('adventure_time', 'tiles');
         this.tileLayer = this.map.createLayer('TileLayer1');
 
-        this.currentTiles.map((_, i) => {
-            let id = _.tileImageId;
-            let x = _.x - 1;
-            let y = _.y - 1;
-            this.map.putTile(id, x, y);
-        })
+        this.currentTiles = this.generateTiles(this.levelData);
+        console.log('this.currentTiles: ', this.currentTiles);
 
-        // for (let col = 0; col < 6; col++) {
-        //     for (let row = 0; row < 6; row++) {
-        //         this.map.putTile(35, col, row);
-        //         console.log('x, y ', (row + 1), (col + 1));
-        //     }
-        // }
 
         this.marker = this.game.add.graphics(0, 0);
         this.marker.lineStyle(2, 0x00FF00, 1);

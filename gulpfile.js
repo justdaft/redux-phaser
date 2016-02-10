@@ -37,6 +37,7 @@ gulp.task('copy:libs', ['clean'], function() {
       'node_modules/redux/dist/redux.js',
       'node_modules/node-uuid/uuid.js',
       'node_modules/phaser/dist/phaser.js'
+      
     ])
     .pipe(gulp.dest('dist/lib'))
 });
