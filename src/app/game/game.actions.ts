@@ -1,5 +1,12 @@
 import { IGameAction } from './game.models';
 
+export function addTiles(tiles: any): IGameAction {
+  return {
+    type: 'ADD_TILES',
+    tiles
+  };
+}
+
 export function addItem(text: string): IGameAction {
   return {
     type: 'ADD',

@@ -1,0 +1,17 @@
+.left-pane {
+  width: 200px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  position: absolute;
+}
+
+.right-pane {
+  width: 1024px;
+  top: 0;
+  left: 200px;
+  bottom: 0;
+  height: 100vh;
+  position: absolute;
+}

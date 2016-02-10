@@ -29,6 +29,7 @@
         "src/app/home/home.component.ts",
         "src/app/about/about.component.ts",
         "src/app/devtools/rollbackaction.ts",
+        "src/app/devtools/game.statelist.ts",
         "src/app/devtools/statelist.ts",
         "src/app/devtools/statemonitor.ts",
         "src/app/devtools/stringify.ts",
@@ -42,6 +43,7 @@
         "typings/node-uuid/node-uuid-base.d.ts",
         "typings/node-uuid/node-uuid-global.d.ts",
         "typings/redux/redux.d.ts",
+        "typings/redux-logger.d.ts",
         "typings/tsd.d.ts",
         "node_modules/immutable/dist/immutable.d.ts",
         "typings/phaser.d.ts"

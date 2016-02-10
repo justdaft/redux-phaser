@@ -1,15 +1,19 @@
 import {Component, OnInit} from 'angular2/core';
 import {IPlayerTurn} from './game.models';
+import GameStore from './game.store';
+import {GameItem} from './game.models';
+import {addTiles} from './game.actions';
+import StateList from '../devtools/statelist';
 
 @Component({
     selector: 'game',
     templateUrl: 'app/game/game.component.html',
     styleUrls: ['app/game/game.component.css'],
-    directives: []
+    directives: [StateList]
 })
 
-
 export class GameComponent implements OnInit {
+    store: GameStore;
     game: Phaser.Game;
     map: Phaser.Tilemap;
     tileLayer: Phaser.TilemapLayer;
@@ -21,9 +25,10 @@ export class GameComponent implements OnInit {
     playerTurn: IPlayerTurn;
     // experiment
     currentTiles: any;
+    tiles: any = [];
 
-
-    constructor() {
+    constructor(store: GameStore) {
+        this.store = store;
         this.game = new Phaser.Game(900, 600, Phaser.AUTO, 'content', {
             preload: this.preload,
             create: this.create,
@@ -47,6 +52,9 @@ export class GameComponent implements OnInit {
     // };
 
 
+    addTiles() {
+        this.store.dispatch(addTiles(this.currentTiles));
+    };
 
     onTap = (pointer: any, tap: any) => {
         console.log('onTap: ');
@@ -58,7 +66,7 @@ export class GameComponent implements OnInit {
 
     generateTiles: any = (levelData: any) => {
         let tmpJSON = Phaser.ArrayUtils.shuffle(levelData);
-                for (let col = 0; col < 6; col++) {
+        for (let col = 0; col < 6; col++) {
             for (let row = 0; row < 6; row++) {
                 this.map.putTile(35, col, row);
             }
@@ -67,7 +75,6 @@ export class GameComponent implements OnInit {
             let width = 6;
             let tmpX = (i % width) + 1;
             let tmpY = Math.ceil((1 + i) / width);
-            console.log('x:', tmpX, 'y:', tmpY);
             _.x = tmpX;
             _.y = tmpY;
             return _;
@@ -82,22 +89,15 @@ export class GameComponent implements OnInit {
         this.game.load.image('cover', 'app/game/game.assets/question_mark.png');
     };
 
-
-
     create = () => {
         console.log('create: ');
-
         this.levelData = JSON.parse(this.game.cache.getText('level_data'));
-
-
-
         this.map = this.game.add.tilemap('matching');
         this.map.addTilesetImage('adventure_time', 'tiles');
         this.tileLayer = this.map.createLayer('TileLayer1');
 
         this.currentTiles = this.generateTiles(this.levelData);
-        console.log('this.currentTiles: ', this.currentTiles);
-
+        this.addTiles();
 
         this.marker = this.game.add.graphics(0, 0);
         this.marker.lineStyle(2, 0x00FF00, 1);
