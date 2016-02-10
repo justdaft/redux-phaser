@@ -22,3 +22,10 @@ export interface IPlayerTurn {
     secondFlippedTile?: ITile;
     flippedTileCount: number;
 }
+
+export interface IGameAction {
+  type: string;
+  text?: string;
+  itemId?: string;
+  completed?: boolean;
+}
