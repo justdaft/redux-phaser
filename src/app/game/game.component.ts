@@ -66,11 +66,6 @@ export class GameComponent implements OnInit {
 
     generateTiles: any = (levelData: any) => {
         let tmpJSON = Phaser.ArrayUtils.shuffle(levelData);
-        for (let col = 0; col < 6; col++) {
-            for (let row = 0; row < 6; row++) {
-                this.map.putTile(35, col, row);
-            }
-        }
         return tmpJSON.map(function(_: any, i: number) {
             let width = 6;
             let tmpX = (i % width) + 1;
@@ -78,6 +73,23 @@ export class GameComponent implements OnInit {
             _.x = tmpX;
             _.y = tmpY;
             return _;
+        });
+    };
+
+    placeTileCovers = () => {
+        for (let col = 0; col < 6; col++) {
+            for (let row = 0; row < 6; row++) {
+                this.map.putTile(35, col, row);
+            }
+        }
+    };
+
+    showAllHiddenTiles = () => {
+        this.currentTiles.map((_: any, i: any) => {
+            let id = _.tileImageId;
+            let x = _.x - 1;
+            let y = _.y - 1;
+            this.map.putTile(id, x, y);
         });
     };
 
@@ -98,7 +110,9 @@ export class GameComponent implements OnInit {
 
         this.currentTiles = this.generateTiles(this.levelData);
         this.addTiles();
-
+        
+        // this.placeTileCovers();
+        this.showAllHiddenTiles();
         this.marker = this.game.add.graphics(0, 0);
         this.marker.lineStyle(2, 0x00FF00, 1);
         this.marker.drawRect(0, 0, 100, 100);
