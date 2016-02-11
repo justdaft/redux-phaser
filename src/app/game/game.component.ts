@@ -1,11 +1,15 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, ChangeDetectionStrategy} from 'angular2/core';
 import {IPlayerTurn} from './game.models';
+import {Store} from '@ngrx/store';
+import {LogMonitor} from '@ngrx/devtools';
+import {gameStates} from './game.reducers';
 
 @Component({
     selector: 'game',
     templateUrl: 'app/game/game.component.html',
     styleUrls: ['app/game/game.component.css'],
-    directives: []
+    directives: [LogMonitor],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 
@@ -23,7 +27,7 @@ export class GameComponent implements OnInit {
     currentTiles: any;
 
 
-    constructor() {
+    constructor(private store: Store<any>) {
         this.game = new Phaser.Game(900, 600, Phaser.AUTO, 'content', {
             preload: this.preload,
             create: this.create,
