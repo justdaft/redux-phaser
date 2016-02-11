@@ -3,6 +3,7 @@ import {IPlayerTurn} from './game.models';
 import {Store} from '@ngrx/store';
 import {LogMonitor} from '@ngrx/devtools';
 import {gameStates} from './game.reducers';
+import * as GameStateActions from './game.reducers';
 
 @Component({
     selector: 'game',
@@ -25,9 +26,12 @@ export class GameComponent implements OnInit {
     playerTurn: IPlayerTurn;
     // experiment
     currentTiles: any;
+    gameStates: any;
+    newGameState: any;
 
 
     constructor(private store: Store<any>) {
+       this.gameStates = store.select('gameStates');
         this.game = new Phaser.Game(900, 600, Phaser.AUTO, 'content', {
             preload: this.preload,
             create: this.create,
@@ -35,6 +39,14 @@ export class GameComponent implements OnInit {
             render: this.render
         });
     };
+
+
+    addGameState(newGameState: any){
+      this.store.dispatch({
+        type: GameStateActions.ADD_GAME_STATE,
+        payload: newGameState
+      });
+    }
 
     // flipBack = () => {
     //     console.log('flipOver');
